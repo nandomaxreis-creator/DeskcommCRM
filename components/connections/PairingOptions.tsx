@@ -59,6 +59,16 @@ export function PairingOptions({ sessionId, qr }: { sessionId: string; qr: React
   }
   return (
     <div className="w-full space-y-4">
+      {/* automultas: aviso fixo antes do pareamento não oficial (fork, só pt-BR). */}
+      <p
+        role="note"
+        data-testid="aviso-disparo-em-massa"
+        className="rounded-md border border-amber-500/40 bg-amber-500/10 p-3 text-xs text-foreground"
+      >
+        <strong>Atenção:</strong> este número é conectado de forma não oficial. Enviar mensagens em massa (listas,
+        campanhas, mensagens para quem não falou com você) pode fazer o WhatsApp <strong>bloquear o número</strong>.
+        Use para atendimento.
+      </p>
       <div className="flex justify-center gap-2" role="group" aria-label={t("Forma de conectar")}>
         <Button
           type="button"

@@ -99,6 +99,11 @@ const schema = z.object({
    * (404); com menos de 32 caracteres também fica desligada.
    */
   TENANT_PROVISIONING_SECRET: z.string().optional().default(""),
+  /**
+   * automultas: segredo HMAC compartilhado com o AUTOMULTAS para `/sso/automultas`.
+   * Vazio (ou < 32 chars) = a rota recusa todo token.
+   */
+  AUTOMULTAS_SSO_SECRET: z.string().optional().default(""),
 
   // Laboratório local de extensões: origem HTTP exata em 127.0.0.1. O cliente
   // recusa a exceção se a URL do app não for loopback. Vazio mantém HTTPS público.

@@ -48,6 +48,8 @@ export const PUBLIC_PATHS: RegExp[] = [
   // instalação (`TENANT_PROVISIONING_SECRET`), checado dentro da rota, que
   // responde 404 enquanto o segredo não existe. Sem cookie, igual /cron/.
   /^\/api\/v1\/tenants\/provision$/,
+  // automultas: entrada por token de uso único vindo do painel do AUTOMULTAS.
+  /^\/sso\/automultas$/,
   // Relógio Hobby (GitHub Actions / cron-job.org). Auth é Bearer na própria
   // rota — sem isto o proxy devolve 401 e o follow-up waiting_reply nunca anda.
   /^\/api\/v1\/system\/relogio\/tick$/,

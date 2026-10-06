@@ -102,7 +102,10 @@ const nextConfig: NextConfig = {
         source: "/(.*)",
         headers: [
           { key: "X-Content-Type-Options", value: "nosniff" },
-          { key: "X-Frame-Options", value: "DENY" },
+          // automultas: o painel do AUTOMULTAS embute o CRM (aba "Atendimento");
+          // nenhum outro site pode. Fixo no fork: headers() é resolvido no build.
+          { key: "Content-Security-Policy", value: "frame-ancestors 'self' https://multas.holyfs.com.br" },
+          { key: "Strict-Transport-Security", value: "max-age=31536000; includeSubDomains" },
           { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
           // microphone=(self): o gravador de voz do composer (PTT estilo WhatsApp)
           // usa getUserMedia({audio}); microphone=() bloquearia em TODA origem,
