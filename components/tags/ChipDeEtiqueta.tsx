@@ -53,7 +53,9 @@ export function ChipDeEtiqueta({ tag, cor, className, children, ...props }: Prop
   const corDoProvider = useCorDaEtiqueta(tag);
   const efetiva = cor === undefined ? corDoProvider : cor;
   return (
-    <Badge variant="secondary" className={cn(className)} style={estiloDoChip(efetiva)} {...props}>
+    // automultas: sem cor, `outline` (texto em contraste cheio) — o `secondary`
+    // deixava text-muted sobre surface-elevated, ilegível no tema escuro.
+    <Badge variant={efetiva ? "secondary" : "outline"} className={cn(className)} style={estiloDoChip(efetiva)} {...props}>
       {tag}
       {children}
     </Badge>
